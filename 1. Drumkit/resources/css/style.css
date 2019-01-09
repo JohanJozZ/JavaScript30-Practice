@@ -1,0 +1,33 @@
+html{
+    font-size: 20px;
+}
+.drumkit{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    height: 100vh;
+}
+.key{
+    width: 100px;
+    border: 4px solid #1eb97d;
+    border-radius: 10px;
+    padding: 5px;
+    margin:10px;
+    text-align: center;
+    transition:all 0.06s;
+}
+kbd{
+    font-size: 140%;
+    display: block;
+}
+.sound{
+    text-transform: uppercase;
+    font-size: 70%;
+    font-family: monospace;
+    color: #b24c03
+}
+.playing{
+    border-color: bisque;
+    background-color: azure;
+    transform: scale(1.1);
+}

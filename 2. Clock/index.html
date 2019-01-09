@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <link href="resources/css/style.css" rel="stylesheet" type="text/css">
+        
+        <title>Javascript clock</title>
+</head>
+
+<body>
+    <div class="clock">
+        <div class="clock-face">
+            <div class="hour-bar"></div>
+            <div class="minute-bar"></div>
+            <div class="second-bar"></div>
+        </div>
+    </div>
+    <script>
+    const secondBar = document.querySelector('.second-bar');
+    const minuteBar = document.querySelector('.minute-bar');
+    const hourBar = document.querySelector('.hour-bar');
+    function setDate(){
+    const now = new Date();
+        
+    const seconds = now.getSeconds();
+    const secondsDeg = seconds*5+90;
+    secondBar.style.transform = `rotate(${secondsDeg}deg)`;
+    
+    const minutes = now.getMinutes();
+    const minutesDeg = minutes * 5+90;
+    minuteBar.style.transform = `rotate(${minutesDeg}deg)`;    
+        
+    const hours = now.getHours();
+    const hoursDeg = (hours/12 * 360) +90;
+    hourBar.style.transform = `rotate(${hoursDeg}deg)`;     
+    }
+        
+    setInterval(setDate,1000);
+    </script>
+</body>
+</html>

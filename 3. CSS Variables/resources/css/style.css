@@ -1,0 +1,33 @@
+:root{
+    --color:#bf7714;
+    --spacing:10px;
+    --blur:10px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: sans-serif;
+}
+body{
+    padding: 50px;
+    text-align: center;
+    background: #193549;
+    color: #fff;
+}
+h1{
+    margin-bottom: 20px;
+}
+img{
+    width: 30%;
+    height: auto;
+    padding: var(--spacing);
+    background-color: var(--color);
+    filter: blur(var(--blur));
+}
+.JS{
+    color: var(--color);
+}
