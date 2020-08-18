@@ -1,27 +1,35 @@
-const slider = document.querySelector('.items');
+const items = document.querySelector('.items');
 let isDown = false;
-let startX;
-let scrollLeft;
+let isDownX = 0;
+let scrolledIn = 0;
 
-slider.addEventListener('mousedown',(e)=>{
-  isDown = true;
-  slider.classList.add('active');
-  startX = e.pageX - slider.offsetLeft; //start point, including margins 
-  scrollLeft = slider.scrollLeft;
-})
-slider.addEventListener('mouseleave',()=>{
-  isDown = false;
-  slider.classList.remove('active');
-})
-slider.addEventListener('mouseup',()=>{
-  isDown = false;
-  slider.classList.remove('active');
-})
-slider.addEventListener('mousemove',(e)=>{
-  if(!isDown) return; //stop the function
+function scroll(e){
+  if(!isDown) return;
   e.preventDefault();
-  const x = e.pageX - slider.offsetLeft;
-  const walk = (x - startX) * 3;
-  slider.scrollLeft = scrollLeft - walk;
-})
+  const x = e.pageX;
+
+  const walk = (x - isDownX) * 2;
+
+  items.scrollLeft = scrolledIn - walk;
+}
+
+items.addEventListener('mousedown',(e)=> {
+  isDown = true;
+  items.classList.add('active');
+  isDownX = e.pageX - items.offsetLeft;
+  scrolledIn = items.scrollLeft;
+});
+
+
+items.addEventListener('mouseleave',()=> {
+  isDown = false; 
+  items.classList.remove('active');
+});
+
+items.addEventListener('mouseup',()=> {
+  isDown = false; 
+  items.classList.remove('active');
+});
+
+items.addEventListener('mousemove',scroll);
 
